@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>시부키 팬사이트 – 테스트</title>
+  <!-- Tailwind CDN (테스트용: 성능/커스터마이즈는 추후 빌드로) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* 접근성 대비 보정용 (빠른 테스트) */
+    .a11y-focus:focus { outline: 3px solid black; outline-offset: 2px; }
+  </style>
+</head>
+<body class="bg-white text-gray-900">
+  <header class="border-b">
+    <div class="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
+      <h1 class="font-bold">텐코 시부키 생일 허브(테스트)</h1>
+      <nav class="flex gap-4 text-sm">
+        <a href="#events" class="hover:underline a11y-focus">이벤트</a>
+        <a href="#gallery" class="hover:underline a11y-focus">팬아트</a>
+        <a href="#videos" class="hover:underline a11y-focus">영상</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-6">
+    <!-- 메인 배너: 이벤트↔기본 팬아트 토글 -->
+    <section class="mb-6">
+      <div class="flex items-center justify-between">
+        <h2 class="text-xl font-semibold">메인 배너</h2>
+        <div class="flex items-center gap-2 text-sm">
+          <span>배너 전환:</span>
+          <button id="toggleBanner" class="px-3 py-1 border rounded a11y-focus">이벤트 ↔ 기본</button>
+        </div>
+      </div>
+      <a id="bannerLink" href="https://panding.co.kr" target="_blank" rel="noopener"
+         class="block mt-3">
+        <img id="bannerImg" alt="메인 배너" class="w-full rounded-lg"
+             src="https://picsum.photos/1200/360?random=1" />
+      </a>
+      <p id="bannerNote" class="text-xs text-gray-600 mt-1">
+        ※ 이벤트 기간에는 굿즈(팬딩) 배너, 종료 시 기본 팬아트 배너로 복귀
+      </p>
+    </section>
+
+    <!-- 50/30/20 레이아웃 (이벤트/팬아트/영상) -->
+    <section class="grid md:grid-cols-10 gap-4">
+      <!-- 이벤트 (50%) -->
+      <div id="events" class="md:col-span-5 border rounded-lg p-4">
+        <h3 class="font-semibold mb-3">이벤트 (50%)</h3>
+        <p class="text-sm text-gray-700 mb-3">
+          시부키 생일 메시지를 남겨주세요. (테스트용 더미 폼, 부적절어 필터 시뮬레이션)
+        </p>
+
+        <!-- 첫날 제한 배지 (날짜 조건 시뮬) -->
+        <div id="limitBadge" class="hidden bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded mb-3">
+          오픈 첫날에는 댓글/가입이 비활성화됩니다. (둘째 날부터 가능)
+        </div>
+
+        <form id="commentForm" class="flex gap-2 mb-3">
+          <input id="commentInput" type="text" placeholder="응원 메시지 입력"
+                 class="flex-1 border rounded px-3 py-2 a11y-focus" />
+          <button class="px-3 py-2 border rounded a11y-focus">남기기</button>
+        </form>
+        <ul id="commentList" class="space-y-2 text-sm"></ul>
+        <p class="text-xs text-gray-500 mt-3">
+          ※ 자동 필터(욕설/광고/성인물) 통과 시 즉시 공개. 관리자는 언제든 삭제/숨김 가능(시뮬).
+        </p>
+      </div>
+
+      <!-- 팬아트 (30%) -->
+      <div id="gallery" class="md:col-span-3 border rounded-lg p-4">
+        <div class="flex items-center justify-between mb-3">
+          <h3 class="font-semibold">팬아트 (30%)</h3>
+          <span class="text-xs text-gray-500">#shibuki_art 자동 수집(테스트용 더미)</span>
+        </div>
+        <div class="grid grid-cols-2 gap-2">
+          <!-- 더미 팬아트: 원작자/원문 링크 표시 시뮬 -->
+          <figure class="border rounded overflow-hidden">
+            <img src="https://picsum.photos/400/300?random=11" alt="팬아트1" loading="lazy" class="w-full" />
+            <figcaption class="text-[11px] p-1 text-gray-600">
+              by <a class="underline" href="#" target="_blank">@artist_one</a> ·
+              <a class="underline" href="#" target="_blank">원문</a>
+            </figcaption>
+          </figure>
+          <figure class="border rounded overflow-hidden">
+            <img src="https://picsum.photos/400/300?random=12" alt="팬아트2" loading="lazy" class="w-full" />
+            <figcaption class="text-[11px] p-1 text-gray-600">
+              by <a class="underline" href="#" target="_blank">@artist_two</a> ·
+              <a class="underline" href="#" target="_blank">원문</a>
+            </figcaption>
+          </figure>
+        </div>
+        <p class="text-xs text-gray-500 mt-3">
+          ※ 업로드 화면에는 “본인 창작물만 업로드” 경고 배지 필요(정식 버전에서 노출).
+        </p>
+      </div>
+
+      <!-- 영상 (20%) -->
+      <div id="videos" class="md:col-span-2 border rounded-lg p-4">
+        <h3 class="font-semibold mb-3">영상 (20%)</h3>
+        <div class="space-y-3">
+          <div class="aspect-video">
+            <iframe class="w-full h-full rounded"
+              src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ"
+              title="시부키 영상 1" loading="lazy" referrerpolicy="no-referrer"></iframe>
+          </div>
+          <div class="aspect-video">
+            <iframe class="w-full h-full rounded"
+              src="https://www.youtube-nocookie.com/embed/oHg5SJYRHA0"
+              title="시부키 영상 2" loading="lazy" referrerpolicy="no-referrer"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="mt-8 border-t pt-4 text-xs text-gray-600">
+      <div class="flex flex-col gap-1">
+        <div>© 팬사이트(테스트). 비상업적 시연용.</div>
+        <div class="flex flex-wrap gap-x-4">
+          <span>개인정보: 이메일/닉네임/접속기록 – 1년 보관(정식 공개 시 고지)</span>
+          <span>저작권: 본인 창작물만 업로드. 운영자는 업로드물 법적 책임을 지지 않음(정식 고지 예정).</span>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // === 배너 전환(이벤트 ↔ 기본) 시뮬레이션 ===
+    let eventMode = true;
+    const bannerImg = document.getElementById('bannerImg');
+    const bannerLink = document.getElementById('bannerLink');
+    document.getElementById('toggleBanner').addEventListener('click', () => {
+      eventMode = !eventMode;
+      if (eventMode) {
+        bannerImg.src = 'https://picsum.photos/1200/360?random=1'; // 이벤트
+        bannerLink.href = 'https://panding.co.kr';
+      } else {
+        bannerImg.src = 'https://picsum.photos/1200/360?random=2'; // 기본 팬아트
+        bannerLink.href = '#';
+      }
+    });
+
+    // === 첫날 제한(가입/업로드 불가) 시뮬레이션 ===
+    const todayIsOpen = true; // 필요 시 false로 바꿔 테스트
+    const limitBadge = document.getElementById('limitBadge');
+    const commentForm = document.getElementById('commentForm');
+    if (!todayIsOpen) {
+      limitBadge.classList.remove('hidden');
+      commentForm.querySelector('button').disabled = true;
+      commentForm.querySelector('button').classList.add('opacity-50','cursor-not-allowed');
+    }
+
+    // === 댓글 필터(아주 단순: 금칙어 포함 시 차단) ===
+    const banned = ['욕설', '광고', '성인']; // 테스트용 키워드
+    const commentInput = document.getElementById('commentInput');
+    const commentList = document.getElementById('commentList');
+    commentForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!todayIsOpen) return;
+      const text = commentInput.value.trim();
+      if (!text) return;
+      const blocked = banned.some(k => text.includes(k));
+      if (blocked) {
+        alert('자동 필터에 의해 차단되었습니다.');
+        commentInput.value = '';
+        return;
+      }
+      const li = document.createElement('li');
+      li.className = 'border rounded px-3 py-2 flex justify-between items-center';
+      li.innerHTML = `<span>${text}</span>
+        <button class="text-red-600 text-xs underline">삭제(관리자)</button>`;
+      li.querySelector('button').addEventListener('click', () => li.remove());
+      commentList.prepend(li);
+      commentInput.value = '';
+    });
+  </script>
+</body>
+</html>
