@@ -1,0 +1,15 @@
+
+/* Tiny fallback if Tailwind CDN is blocked */
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+.border { border: 1px solid rgba(0,0,0,.08); }
+.rounded { border-radius: .5rem; }
+.p-4 { padding: 1rem; }
+.max-w-6xl { max-width: 72rem; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.px-4 { padding-left: 1rem; padding-right: 1rem; }
+.py-6 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+.text-gray-600 { color: #4b5563; }
+.text-gray-900 { color: #111827; }

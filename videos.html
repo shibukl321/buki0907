@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>텐코 시부키 팬 허브 – 테스트</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="./styles.css">
+  <style>.a11y-focus:focus{outline:3px solid black;outline-offset:2px}</style>
+</head>
+<body class="bg-white text-gray-900">
+
+  <header class="border-b">
+    <div class="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
+      <a href="./index.html" class="font-bold hover:opacity-80">텐코 시부키 팬 허브 (테스트)</a>
+      <nav class="flex gap-4 text-sm">
+        <a href="./links.html" class="hover:underline a11y-focus">공지/링크</a>
+        <a href="./gallery.html" class="hover:underline a11y-focus">팬아트</a>
+        <a href="./videos.html" class="hover:underline a11y-focus">영상</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-6">
+    <h2 class="text-xl font-semibold mb-4">영상 모음</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="aspect-video">
+        <iframe class="w-full h-full rounded"
+          src="https://www.youtube-nocookie.com/embed/QbSMSvVMHqU"
+          title="영상 1" loading="lazy" referrerpolicy="no-referrer"></iframe>
+      </div>
+      <div class="aspect-video">
+        <iframe class="w-full h-full rounded"
+          src="https://www.youtube-nocookie.com/embed/Ho-tW7OsO54"
+          title="영상 2" loading="lazy" referrerpolicy="no-referrer"></iframe>
+      </div>
+    </div>
+  </main>
+
+  <footer class="mt-8 border-t pt-4 text-xs text-gray-600">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col gap-1">
+      <div>© 팬사이트(프로토타입). 비상업적 시연용.</div>
+      <div class="flex flex-wrap gap-x-4">
+        <span>개인정보: 이메일/닉네임/접속기록 – 1년 보관(정식 공개 시 고지)</span>
+        <span>저작권: 본인 창작물만 업로드. 운영자는 업로드물 법적 책임을 지지 않음(정식 고지 예정).</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>
